@@ -48,22 +48,14 @@ systemctl mask powerstation.service
 systemctl enable tuned.service
 systemctl enable tuned-ppd.service
 
-# Remove -deck specific changes to allow for login screens and session selection in settings
-rm -f /etc/sddm.conf.d/steamos.conf
-rm -f /etc/sddm.conf.d/virtualkbd.conf
-rm -f /etc/sddm.conf.d/zz-steamos-autologin.conf
-rm -f /usr/share/gamescope-session-plus/bootstrap_steam.tar.gz
-dnf5 remove -y steamos-manager-powerstation
-dnf5 install --enable-repo="copr:copr.fedorainfracloud.org:ublue-os:bazzite" -y \
-    ds-inhibit
-systemctl enable ds-inhibit.service
-
 dnf5 install -y \
     cosmic-session \
     cosmic-greeter
 
 dnf5 remove -y \
+    plasma-desktop \
     plasma-login-manager \
+    plasma-workspace \
     sddm
 
 systemctl enable cosmic-greeter.service

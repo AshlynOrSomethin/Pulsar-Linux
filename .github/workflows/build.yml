@@ -32,8 +32,8 @@ jobs:
       fail-fast: false
       matrix:
         base_image:
-          - bazzite-cosmic
-          - bazzite-cosmic-nvidia
+          - bazzite
+          - bazzite-nvidia
 
     env:
       BASE_IMAGE: ${{ matrix.base_image }}
