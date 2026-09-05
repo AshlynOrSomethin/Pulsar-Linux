@@ -13,8 +13,8 @@ sed -i 's|"image-ref": [^,]*|"image-ref": "'"$IMAGE_REF"'"|' $IMAGE_INFO
 sed -i "s/^VARIANT_ID=.*/VARIANT_ID=$IMAGE_NAME/" /usr/lib/os-release
 
 # KDE About page
-# We don't want to edit an unexisting file on gnome variants
-if [[ "$IMAGE_NAME" != *gnome* ]]; then
+# COSMIC builds do not ship KDE's configuration file.
+if [[ "$IMAGE_NAME" != *cosmic* ]]; then
     sed -i "s|^Website=.*|Website=https://dev.bazzite.gg|" /etc/xdg/kcm-about-distrorc
     if [[ "$IMAGE_NAME" != *nvidia* ]]; then
         sed -i "s/^Variant=.*/Variant=Developer Experience/" /etc/xdg/kcm-about-distrorc

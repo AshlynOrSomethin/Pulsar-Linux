@@ -39,11 +39,7 @@ toggle-gamemode ACTION="":
     IMAGE_INFO="/usr/share/ublue-os/image-info.json"
     BASE_IMAGE_NAME=$(jq -r '."base-image-name"' < "$IMAGE_INFO" 2>/dev/null || echo "silverblue")
 
-    # Determine desktop session based on base image (KDE = kinoite, GNOME = silverblue)
-    DESKTOP_SESSION="gnome-wayland.desktop"
-    if [[ $BASE_IMAGE_NAME == "kinoite" ]]; then
-        DESKTOP_SESSION="plasma.desktop"
-    fi
+    DESKTOP_SESSION="cosmic.desktop"
 
     GAMEMODE_SESSION="gamescope-session.desktop"
     CONFIG_FILE="/etc/sddm.conf.d/zz-steamos-autologin.conf"

@@ -58,30 +58,15 @@ dnf5 install --enable-repo="copr:copr.fedorainfracloud.org:ublue-os:bazzite" -y 
     ds-inhibit
 systemctl enable ds-inhibit.service
 
-if [[ "$IMAGE_NAME" == *gnome* ]]; then
-    # Remove SDDM and re-enable GDM on GNOME builds.
-    dnf5 remove -y \
-        sddm
+dnf5 install -y \
+    cosmic-session \
+    cosmic-greeter
 
-    systemctl enable gdm.service
-else
-    dnf5 install -y \
-        plasma-login-manager
+dnf5 remove -y \
+    plasma-login-manager \
+    sddm
 
-    dnf5 remove -y \
-        sddm
-
-    systemctl enable plasmalogin
-
-    # Re-enable logout and switch user functionality in KDE
-    sed -i -E \
-      -e 's/^(action\/switch_user)=false/\1=true/' \
-      -e 's/^(action\/start_new_session)=false/\1=true/' \
-      -e 's/^(action\/lock_screen)=false/\1=true/' \
-      -e 's/^(kcm_sddm\.desktop)=false/\1=true/' \
-      -e 's/^(kcm_plymouth\.desktop)=false/\1=true/' \
-      /etc/xdg/kdeglobals
-fi
+systemctl enable cosmic-greeter.service
 
 
 dnf5 install --enable-repo="copr:copr.fedorainfracloud.org:ublue-os:packages" -y \

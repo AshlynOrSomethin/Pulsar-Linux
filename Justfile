@@ -1,7 +1,7 @@
 export repo_organization := env("GITHUB_REPOSITORY_OWNER", "ublue-os")
 export image_name := env("IMAGE_NAME", "bazzite-dx")
 export default_tag := env("DEFAULT_TAG", "latest")
-export default_base_image := env("BASE_IMAGE", "ghcr.io/ublue-os/bazzite-deck:stable")
+export default_base_image := env("BASE_IMAGE", "ghcr.io/ublue-os/bazzite-cosmic:stable")
 export bib_image := env("BIB_IMAGE", "quay.io/centos-bootc/bootc-image-builder:latest")
 export SUDO_DISPLAY := if `if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then echo true; fi` == "true" { "true" } else { "false" }
 export SUDOIF := if `id -u` == "0" { "" } else if SUDO_DISPLAY == "true" { "sudo --askpass" } else { "sudo" }
