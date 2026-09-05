@@ -1,0 +1,14 @@
+[Unit]
+Description=Install Lix package manager
+Wants=network-online.target
+After=network-online.target
+ConditionPathExists=!/var/lib/lix-installer/installed
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c 'curl -sSfL https://install.lix.systems/lix | sh -s -- install ostree --no-confirm --no-modify-profile --enable-flakes'
+ExecStartPost=/usr/bin/mkdir -p /var/lib/lix-installer
+ExecStartPost=/usr/bin/touch /var/lib/lix-installer/installed
+
+[Install]
+WantedBy=multi-user.target
