@@ -49,8 +49,13 @@ systemctl enable tuned.service
 systemctl enable tuned-ppd.service
 
 dnf5 install -y \
+    cosmic-edit \
     cosmic-session \
-    cosmic-greeter
+    cosmic-greeter \
+    cosmic-monitor \
+    cosmic-player \
+    cosmic-store \
+    cosmic-wallpapers
 
 dnf5 remove -y \
     plasma-desktop \
