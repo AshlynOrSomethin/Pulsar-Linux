@@ -90,7 +90,7 @@ jobs:
                 jq -r '.config.Labels["org.opencontainers.image.version"]'
           )
           if [[ -z $SOURCE_VERSION ]]; then
-            echo "::error::$SOURCE_VERSION was not fetched correctly: $SOURCE_VERSION=${$SOURCE_VERSION}"
+            echo "::error::SOURCE_VERSION was not fetched correctly: SOURCE_VERSION=$SOURCE_VERSION"
             exit 1
           fi
           echo "SOURCE_VERSION=$SOURCE_VERSION" >>$GITHUB_OUTPUT

@@ -9,6 +9,6 @@ dnf5 remove -y --setopt=protect_running_kernel=False \
     kernel-modules
 
 dnf5 copr enable -y bieszczaders/kernel-cachyos-lto
-dnf5 install -y \
+KERNEL_INSTALL_PLUGINS=: dnf5 install -y \
     kernel-cachyos-lto \
     kernel-cachyos-lto-devel-matched
