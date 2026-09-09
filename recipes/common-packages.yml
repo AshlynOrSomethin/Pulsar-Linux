@@ -6,8 +6,27 @@ modules:
         - ryanabx/cosmic-epoch
         - wiiznokes/cosmic-applets-unofficial
         - kordus/cosmic-applets
-    install:
+        - bieszczaders/kernel-cachyos-lto
+    remove:
+      auto-remove: false
       packages:
+        - kernel
+        - kernel-core
+        - kernel-devel
+        - kernel-devel-matched
+        - kernel-modules
+        - kernel-modules-core
+        - kernel-modules-extra
+    install:
+      allow-erasing: true
+      packages:
+        - repo: copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-lto
+          packages:
+            - kernel-cachyos-lto
+            - kernel-cachyos-lto-core
+            - kernel-cachyos-lto-modules
+            - kernel-cachyos-lto-devel
+            - kernel-cachyos-lto-devel-matched
         - cosmic-desktop
         - cosmic-app-library
         - cosmic-applets
