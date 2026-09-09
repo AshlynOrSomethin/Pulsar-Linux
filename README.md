@@ -11,31 +11,19 @@ This is an experimental image built from Bazzite GNOME images, adding COSMIC DE 
 
 ### AMD/Intel
 ```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-cosmic:latest
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-dx-cosmic:latest
 ```
 ### Nvidia Turing or later (RTX | GTX 16xx)
 ```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-cosmic-nvidia-open:latest
-```
-### Nvidia Legacy (GTX 9xx-10xx)
-```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-cosmic-nvidia:latest
-```
-### Developer Experience version (AMD/Intel)
-```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-dx-cosmic:latest
-```
-### Developer Experience version (RTX | GTX 16xx)
-```bash
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-dx-cosmic-nvidia-open:latest
 ```
-### Developer Experience version (GTX 9xx-10xx; based on [this image](https://github.com/Lumaeris/bazzite-ldx-nvidia))
+### Nvidia Legacy (GTX 9xx-10xx; based on [this image](https://github.com/Lumaeris/bazzite-ldx-nvidia))
 ```bash
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/koitorin/bazzite-dx-cosmic-nvidia:latest
 ```
 
 ### Rebase to the signed image
-Swap `<image>` to the one you're using (bazzite-cosmic, bazzite-nvidia-open, or bazzite-nvidia).
+Swap `<image>` to the one you're using (bazzite-dx-cosmic, bazzite-dx-cosmic-nvidia-open, or bazzite-dx-cosmic-nvidia).
 ```bash
 rpm-ostree rebase ostree-image-signed:docker://ghcr.io/koitorin/<image>:latest
 ```
