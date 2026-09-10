@@ -19,6 +19,10 @@ modules:
         - kernel-modules-extra
     install:
       allow-erasing: true
+      # cosmic-session/cosmic-desktop hard-require these; test if exclude can override it
+      exclude:
+        - cosmic-term
+        - cosmic-player
       packages:
         - repo: copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-lto
           packages:
