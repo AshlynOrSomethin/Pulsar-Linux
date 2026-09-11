@@ -4,6 +4,7 @@ modules:
       cleanup: true
       copr:
         - ryanabx/cosmic-epoch
+        - ashlynorsomethin/cosmic-session-fedora
         - wiiznokes/cosmic-applets-unofficial
         - kordus/cosmic-applets
         - bieszczaders/kernel-cachyos-lto
@@ -21,7 +22,6 @@ modules:
       allow-erasing: true
       # cosmic-session/cosmic-desktop hard-require these; test if exclude can override it
       exclude:
-        - cosmic-term
         - cosmic-player
       packages:
         - repo: copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-lto
@@ -50,10 +50,11 @@ modules:
         - cosmic-panel
         - cosmic-randr
         - cosmic-screenshot
-        - cosmic-session
+        - repo: copr:copr.fedorainfracloud.org:ashlynorsomethin:cosmic-session-fedora
+          packages:
+            - cosmic-session
         - cosmic-settings
         - cosmic-settings-daemon
-        - cosmic-store
         - ptyxis
         - cosmic-wallpapers
         - cosmic-workspaces
