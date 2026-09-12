@@ -5,6 +5,7 @@ modules:
       copr:
         - ryanabx/cosmic-epoch
         - ashlynorsomethin/cosmic-session-fedora
+        - ashlynorsomethin/cosmic-desktop-fedora
         - wiiznokes/cosmic-applets-unofficial
         - kordus/cosmic-applets
         - bieszczaders/kernel-cachyos-lto
@@ -34,7 +35,9 @@ modules:
         - llvm
         - clang
         - lld
-        - cosmic-desktop
+        - repo: copr:copr.fedorainfracloud.org:ashlynorsomethin:cosmic-desktop-fedora
+          packages:
+            - cosmic-desktop
         - cosmic-app-library
         - cosmic-applets
         - cosmic-bg
